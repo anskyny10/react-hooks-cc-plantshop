@@ -59,7 +59,7 @@ function PlantCard( { plant, deletePlant, updatePrice }) {
       <h4>{plant.name}</h4>
       <p>Price: {plant.price}</p>
       <form onSubmit={handlePriceSubmit}>
-        <input type="number" value={newPrice} onChange={handlePriceChange} />
+        <input type="number" placeholder="Enter new price..." value={newPrice} onChange={handlePriceChange} />
         <button type="submit">Update Price</button>
       </form>
       {inStock ? (
