@@ -16,7 +16,7 @@
       "id": 3,
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
-      "price": 5.99
+      "price": 6.99
     },
     {
       "id": 4,
@@ -43,10 +43,16 @@
       "price": 55
     },
     {
-      "name": "cool new plant",
-      "image": "https://images.pexels.com/photos/635529/pexels-photo-635529.jpeg",
-      "price": "42.95",
+      "name": "Money Tree",
+      "image": "https://thecontentedplant.com/wp-content/uploads/2021/03/money-tree-plant-735x1103.jpg",
+      "price": 69.69,
       "id": 8
+    },
+    {
+      "name": "coole plant",
+      "image": "https://images.pexels.com/photos/635529/pexels-photo-635529.jpeg",
+      "price": 4.53,
+      "id": 9
     }
   ]
 }

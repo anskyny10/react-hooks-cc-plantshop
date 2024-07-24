@@ -37,11 +37,25 @@ function PlantPage() {
     }
   });
 
+  const updatePrice = (updatedPrice) => {
+    setPlants(plants.map(originalPlant => {
+      if(originalPlant.id === updatedPrice.id) {
+        return updatedPrice;
+      } else {
+        return originalPlant;
+      }
+    }))
+  }
+
+  const deletePlant = (id) => {
+    setPlants(plants.filter(plant => plant.id!== id))
+  }
+
   return (
     <main>
       <NewPlantForm addPlant={addPlant}/>
       <Search updateSearch={updateSearch}/>
-      <PlantList plants={filteredPlants}/>
+      <PlantList plants={filteredPlants} deletePlant={deletePlant} updatePrice={updatePrice}/>
     </main>
   );
 }

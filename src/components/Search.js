@@ -4,14 +4,14 @@ function Search( { updateSearch } ) {
 
   const [searchForm, setSearchForm] = useState("");
 
+  function handleChange(e) {
+    setSearchForm(e.target.value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     updateSearch(searchForm);
     setSearchForm("");
-  }
-
-  function handleChange(e) {
-    setSearchForm(e.target.value);
   }
 
   return (

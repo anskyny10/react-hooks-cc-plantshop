@@ -5,7 +5,7 @@ function NewPlantForm( { addPlant } ) {
   const [form, setForm] = useState({
     name: "",
     image: "",
-    price: 0
+    price: ""
   });
 
   const handleInputChange = (e) => {
@@ -17,10 +17,16 @@ function NewPlantForm( { addPlant } ) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = {
+      ...form,
+      price: parseFloat(form.price)
+    };
+
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form)
+      body: JSON.stringify(formData)
     })
      .then(res => {
         if(res.ok){
@@ -34,7 +40,7 @@ function NewPlantForm( { addPlant } ) {
         setForm({
           name: "", 
           image: "", 
-          price: 0 
+          price: "" 
         });
      })
      .catch(err => console.error('couldnt reach server'))
@@ -44,9 +50,9 @@ function NewPlantForm( { addPlant } ) {
     <div className="new-plant-form">
       <h2>New Plant</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Plant name" onChange={handleInputChange} />
-        <input type="text" name="image" placeholder="Image URL" onChange={handleInputChange} />
-        <input type="number" name="price" step="0.01" placeholder="Price" onChange={handleInputChange} />
+        <input type="text" name="name" placeholder="Plant name" value={form.name} onChange={handleInputChange} />
+        <input type="text" name="image" placeholder="Image URL" value={form.image} onChange={handleInputChange} />
+        <input type="number" name="price" step="0.01" placeholder="Price" value={form.price} onChange={handleInputChange} />
         <button type="submit">Add Plant</button>
       </form>
     </div>
